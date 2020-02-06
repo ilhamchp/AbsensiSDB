@@ -1,24 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 using System.Diagnostics;                   //  USE FOR ANTI KILLS
-
+using System.Xml;
 
 namespace Login2
 {
@@ -40,14 +28,11 @@ namespace Login2
     public partial class MainWindow : Window
     {
         preventKill disablekill = new preventKill();
-
         public MainWindow()
         {
             InitializeComponent();
             disablekill.activate(1);
         }
-
-
         // mematikan fungsi dari alt + f4
 
         protected override void OnPreviewKeyDown(KeyEventArgs e)
@@ -68,14 +53,15 @@ namespace Login2
         // Proses login, ketika tombol Login di click
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            fail.IsOpen = false;
             MainWindow home = new MainWindow();
 
-            string npa = NPAText.Text;
-            string nim = NIMText.Text;
+            //string npa = NPAText.Text;
+            string TglLahir = TglLahirText.Text;
+            string NIM = NIMText.Text;
             // WebRequest req = WebRequest.Create("http://10.10.0.9/elib/api/user/read_one.php?npa=" + npa);
-            WebRequest req = WebRequest.Create("http://encode.jtk.polban.ac.id/elib/api/user/read_one.php?npa=" + npa);
-
+            //WebRequest req = WebRequest.Create("http://encode.jtk.polban.ac.id/elib/api/user/read_one.php?npa=" + npa);
+            WebRequest req = WebRequest.Create("http://127.0.0.1:8000/api/mahasiswa/" + NIM);
             //req.Method = "GET";
             req.ContentType = "application/json; charset=utf-8";
 
@@ -89,7 +75,6 @@ namespace Login2
             //ds.Write(byteArray, 0, byteArray.Length);
             //ds.Close();
 
-
             var response = (HttpWebResponse)req.GetResponse();
             string jsonText;
             using (var sr = new StreamReader(response.GetResponseStream()))
@@ -99,9 +84,11 @@ namespace Login2
             //var nama = js["nama"];
 
             //get data from json to model
-            User user = JsonConvert.DeserializeObject<User>(jsonText);
-
-            if (user.User_npa != null && user.nim == nim)
+            //User user = JsonConvert.DeserializeObject<User>(jsonText);
+            Mahasiswa mhs = JsonConvert.DeserializeObject<Mahasiswa>(jsonText);
+            readxml(mhs);
+            //if (user.User_npa != null && user.nim == nim)
+            if (mhs.nim != null && mhs.tanggal_lahir == TglLahir)
             {
                 //Console.WriteLine("fakyu");
                 //this.Close();
@@ -110,8 +97,10 @@ namespace Login2
                 //login.TextBlockName.Text = nama;
 
                 //---------------------------Penambahan User Active 1--------------------------------------
-                string URI = "http://encode.jtk.polban.ac.id/elib/api/login/aktif.php";
-                string myParameters = "npa="+ user.User_npa + "&active=1";
+                //string URI = "http://encode.jtk.polban.ac.id/elib/api/login/aktif.php";
+                //string myParameters = "npa="+ user.User_npa + "&active=1";
+                string URI = "http://127.0.0.1/api/status/";
+                string myParameters = "nim_pengguna=" + mhs.nim + "&active=1";
 
                 using (WebClient wc = new WebClient())
                 {
@@ -133,6 +122,34 @@ namespace Login2
             disablekill.activate(0);
             //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
             Close();
+        }
+
+        // Mencatat lokasi PC yang digunakan oleh User ELIB
+        public static void readxml(Mahasiswa mhs)
+        {
+            using (XmlReader reader = XmlReader.Create(@"C:\Login\config.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        //return only when you have START tag  
+                        switch (reader.Name.ToString())
+                        {
+                            case "No":
+                                //Console.WriteLine("Name of the Element is : " + reader.ReadString());
+                                mhs.no_pc = reader.ReadString();
+                                Console.WriteLine("Nomer Pc : " + mhs.no_pc);
+                                break;
+                            case "Location":
+                                Console.WriteLine("Your Location is : " + reader.ReadString());
+                                break;
+                        }
+                    }
+                    Console.WriteLine("");
+                }
+            }
+            //Console.ReadKey();
         }
     }
 }

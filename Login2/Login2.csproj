@@ -127,6 +127,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Mahasiswa.cs" />
     <Compile Include="globalkeyboardhook.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Login.xaml.cs">
