@@ -1,0 +1,41 @@
+﻿<Window x:Class="Login2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login2"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" 
+        Width="1366"
+        Height="768"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" 
+        FontFamily="Segoe UI Emoji"
+        WindowState ="Maximized" Icon="Assets/himakom.ico">
+
+    <Grid Margin="0,0,10,-43">
+        <Image Source="Assets/BG 1.png" Stretch="Fill" Margin="0,0,-10,41"/>
+        <Popup x:Name="fail" PlacementTarget="{Binding ElementName=MainPanel}" Placement="Center">
+            <TextBlock Background="#FFF1F1F1" FontSize="18" Text="NIM ATAU NPA ANDA SALAH" RenderTransformOrigin="0.465,-0.148"/>
+        </Popup>
+
+        <Rectangle Width="280" Height="240" VerticalAlignment="Bottom" Margin="538,0,538,295" RadiusY="10" RadiusX="10" Fill="White">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid VerticalAlignment="Bottom" Margin="538,0,538,295" Height="240" Width="280">
+            <Label Content="SILAKAN LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18"/>
+
+            <StackPanel VerticalAlignment="Center" Margin="15">
+                <TextBox x:Name="NIMText" Margin="0,10" materialDesign:HintAssist.Hint="NIM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="NPAText" Margin="0,10" materialDesign:HintAssist.Hint="NPA" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+            </StackPanel>
+        </Grid>
+        <Button  Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="601,0,605,251" Content="LOGIN" Click="Button_Click"/>
+        <TextBlock Text="Elib Developper" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="636,0,636,233" Foreground="Gray" Cursor="Hand"/>
+        <Button Content="SHUTDOWN PC" HorizontalAlignment="Left" Margin="1146,716,0,0" VerticalAlignment="Top" Width="174" Click="Button_Click_1"/>
+    </Grid>
+</Window>
