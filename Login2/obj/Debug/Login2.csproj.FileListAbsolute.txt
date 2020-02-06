@@ -1,0 +1,76 @@
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Flurl.dll
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Flurl.Http.dll
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Flurl.Http.Xml.dll
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\MaterialDesignColors.dll
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Newtonsoft.Json.dll
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Flurl.xml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Flurl.Http.xml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Flurl.Http.Xml.xml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Newtonsoft.Json.pdb
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Newtonsoft.Json.xml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Login2.csprojAssemblyReference.cache
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Login.g.cs
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Logout.g.cs
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\MainWindow.g.cs
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\App.g.cs
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\App.baml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Login.baml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Logout.baml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\MainWindow.baml
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Login2.csproj.GenerateResource.cache
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Login2.csproj.CoreCompileInputs.cache
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Login2.csproj.CopyComplete
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Biling Elib.exe.config
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Biling Elib.exe.manifest
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Biling Elib.application
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Biling Elib.exe
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\bin\Debug\Biling Elib.pdb
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Biling Elib_MarkupCompile.cache
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Biling Elib_MarkupCompile.lref
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Biling Elib.g.resources
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Elib.Properties.Resources.resources
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Biling Elib.exe.manifest
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Biling Elib.application
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Biling Elib.exe
+D:\nitip\HIMKOM_FIX\Project Elib\Elib Login\Login2\obj\Debug\Biling Elib.pdb
+D:\Elib Login\Login2\bin\Debug\Biling Elib.exe.config
+D:\Elib Login\Login2\bin\Debug\Biling Elib.exe.manifest
+D:\Elib Login\Login2\bin\Debug\Biling Elib.application
+D:\Elib Login\Login2\bin\Debug\Biling Elib.exe
+D:\Elib Login\Login2\bin\Debug\Biling Elib.pdb
+D:\Elib Login\Login2\bin\Debug\Flurl.dll
+D:\Elib Login\Login2\bin\Debug\Flurl.Http.dll
+D:\Elib Login\Login2\bin\Debug\Flurl.Http.Xml.dll
+D:\Elib Login\Login2\bin\Debug\MaterialDesignColors.dll
+D:\Elib Login\Login2\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Elib Login\Login2\bin\Debug\Newtonsoft.Json.dll
+D:\Elib Login\Login2\bin\Debug\Flurl.xml
+D:\Elib Login\Login2\bin\Debug\Flurl.Http.xml
+D:\Elib Login\Login2\bin\Debug\Flurl.Http.Xml.xml
+D:\Elib Login\Login2\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Elib Login\Login2\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Elib Login\Login2\bin\Debug\Newtonsoft.Json.pdb
+D:\Elib Login\Login2\bin\Debug\Newtonsoft.Json.xml
+D:\Elib Login\Login2\obj\Debug\Login2.csprojAssemblyReference.cache
+D:\Elib Login\Login2\obj\Debug\Login.g.cs
+D:\Elib Login\Login2\obj\Debug\Logout.g.cs
+D:\Elib Login\Login2\obj\Debug\MainWindow.g.cs
+D:\Elib Login\Login2\obj\Debug\App.g.cs
+D:\Elib Login\Login2\obj\Debug\Biling Elib_MarkupCompile.cache
+D:\Elib Login\Login2\obj\Debug\Biling Elib_MarkupCompile.lref
+D:\Elib Login\Login2\obj\Debug\App.baml
+D:\Elib Login\Login2\obj\Debug\Login.baml
+D:\Elib Login\Login2\obj\Debug\Logout.baml
+D:\Elib Login\Login2\obj\Debug\MainWindow.baml
+D:\Elib Login\Login2\obj\Debug\Biling Elib.g.resources
+D:\Elib Login\Login2\obj\Debug\Elib.Properties.Resources.resources
+D:\Elib Login\Login2\obj\Debug\Login2.csproj.GenerateResource.cache
+D:\Elib Login\Login2\obj\Debug\Login2.csproj.CoreCompileInputs.cache
+D:\Elib Login\Login2\obj\Debug\Biling Elib.exe.manifest
+D:\Elib Login\Login2\obj\Debug\Biling Elib.application
+D:\Elib Login\Login2\obj\Debug\Login2.csproj.CopyComplete
+D:\Elib Login\Login2\obj\Debug\Biling Elib.exe
+D:\Elib Login\Login2\obj\Debug\Biling Elib.pdb

@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Flurl.Http.Xml</name>
+    </assembly>
+    <members>
+        <member name="T:Flurl.Http.Xml.CapturedXmlContent">
+            <summary>
+            Provides HTTP content based on a serialized XML object, with the XML string captured to a property
+            so it can be read without affecting the read-once content stream.
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.CapturedXmlContent.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Flurl.Http.Xml.CapturedXmlContent"/> class.
+            </summary>
+            <param name="xml">The XML.</param>
+            <param name="mediaType">The media-type.</param>
+        </member>
+        <member name="T:Flurl.Http.Xml.FlurlHttpSettingsExtensions">
+            <summary>
+            FlurlHttpSettingsExtensions
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlHttpSettingsExtensions.XmlSerializer(Flurl.Http.Configuration.FlurlHttpSettings)">
+            <summary>
+            XMLs the serializer.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlHttpSettingsExtensions.XmlSerializer(Flurl.Http.Configuration.FlurlHttpSettings,System.Xml.XmlWriterSettings)">
+            <summary>
+            XMLs the serializer.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="xmlWriterSettings">The XML writer settings.</param>
+        </member>
+        <member name="T:Flurl.Http.Xml.FlurlRequestExtensions">
+            <summary>
+            FlurlRequestExtensions
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlRequestExtensions.GetXmlAsync``1(Flurl.Http.IFlurlRequest,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the XML response body deserialized to an object of type T.
+            </returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlRequestExtensions.GetXDocumentAsync(Flurl.Http.IFlurlRequest,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the XML response body parsed into an XDocument.
+            </returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlRequestExtensions.GetXElementsFromXPath(Flurl.Http.IFlurlRequest,System.String,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="expression">The expression.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the XML response body parsed into a collection of XElements.
+            </returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlRequestExtensions.GetXElementsFromXPath(Flurl.Http.IFlurlRequest,System.String,System.Xml.IXmlNamespaceResolver,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="expression">The expression.</param>
+            <param name="resolver">The resolver.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the XML response body parsed into a collection of XElements.
+            </returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlRequestExtensions.SendXmlAsync(Flurl.Http.IFlurlRequest,System.Net.Http.HttpMethod,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous HTTP request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="httpMethod">HTTP method of the request</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the received HttpResponseMessage.
+            </returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlRequestExtensions.PostXmlAsync(Flurl.Http.IFlurlRequest,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous POST request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the received HttpResponseMessage.
+            </returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.FlurlRequestExtensions.PutXmlAsync(Flurl.Http.IFlurlRequest,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous PUT request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the received HttpResponseMessage.
+            </returns>
+        </member>
+        <member name="T:Flurl.Http.Xml.HttpResponseMessageExtensions">
+            <summary>
+            HttpResponseMessageExtensions
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.HttpResponseMessageExtensions.ReceiveXmlResponseMessage(System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Receives XML-formatted HTTP response body. Intended to chain off an async HTTP.
+            </summary>
+            <param name="responseMessage">The response.</param>
+            <returns>A Task whose result is a response message containing data in the response body.</returns>
+            <example>x = await url.PostAsync(data).ReceiveXmlResponseMessage()</example>
+        </member>
+        <member name="M:Flurl.Http.Xml.HttpResponseMessageExtensions.ReceiveXml``1(System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Deserializes XML-formatted HTTP response body to object of type T. Intended to chain off an async HTTP.
+            </summary>
+            <typeparam name="T">A type whose structure matches the expected XML response.</typeparam>
+            <param name="response">The response.</param>
+            <returns>A Task whose result is an object containing data in the response body.</returns>
+            <example>x = await url.PostAsync(data).ReceiveXml&lt;T&gt;()</example>
+        </member>
+        <member name="M:Flurl.Http.Xml.HttpResponseMessageExtensions.ReceiveXDocument(System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Parses XML-formatted HTTP response body into an XDocument. Intended to chain off an async call.
+            </summary>
+            <param name="response">The response.</param>
+            <returns>A Task whose result is an XDocument containing XML data from the response body.</returns>
+            <example>d = await url.PostAsync(data).ReceiveXDocument()</example>
+        </member>
+        <member name="M:Flurl.Http.Xml.HttpResponseMessageExtensions.ReceiveXElementsFromXPath(System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage},System.String)">
+            <summary>
+            Parses XML-formatted HTTP response body into a collection of XElements. Intended to chain off an async call.
+            </summary>
+            <returns>A Task whose result is a collection of XElements from an XDocument containing XML data from the response body.</returns>
+            <example>d = await url.PostAsync(data).ReceiveXElementsFromXPath(xpathExpression)</example>
+        </member>
+        <member name="M:Flurl.Http.Xml.HttpResponseMessageExtensions.ReceiveXElementsFromXPath(System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage},System.String,System.Xml.IXmlNamespaceResolver)">
+            <summary>
+            Parses XML-formatted HTTP response body into a collection of XElements. Intended to chain off an async call.
+            </summary>
+            <returns>A Task whose result is a collection of XElements from an XDocument containing XML data from the response body.</returns>
+            <example>d = await url.PostAsync(data).ReceiveXElementsFromXPath(xpathExpression, namespaceResolver)</example>
+        </member>
+        <member name="T:Flurl.Http.Xml.MicrosoftXmlSerializer">
+            <summary>
+            ISerializer implementation that uses Microsoft XmlSerializer.
+            Default serializer used in calls to GetXmlAsync, PostXmlAsync, etc.
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.MicrosoftXmlSerializer.#ctor(System.Xml.XmlWriterSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Flurl.Http.Xml.MicrosoftXmlSerializer"/> class.
+            </summary>
+            <param name="xmlWriterSettings">The XML writer settings.</param>
+        </member>
+        <member name="M:Flurl.Http.Xml.MicrosoftXmlSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes an object to a string representation.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Flurl.Http.Xml.MicrosoftXmlSerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserializes an object from a string representation.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="s">The string.</param>
+        </member>
+        <member name="M:Flurl.Http.Xml.MicrosoftXmlSerializer.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserializes an object from a stream representation.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="T:Flurl.Http.Xml.StringExtensions">
+            <summary>
+            StringExtensions
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.StringExtensions.GetXmlAsync``1(System.String,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url">The URL.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.  Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the XML response body deserialized to an object of type T.
+            </returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.StringExtensions.GetXDocumentAsync(System.String,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the XML response body parsed into an XDocument.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.StringExtensions.GetXElementsFromXPath(System.String,System.String,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="expression">The expression.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the XML response body parsed into a collection of XElements.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.StringExtensions.GetXElementsFromXPath(System.String,System.String,System.Xml.IXmlNamespaceResolver,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="expression">The expression.</param>
+            <param name="resolver">The resolver.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the XML response body parsed into a collection of XElements.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.StringExtensions.SendXmlAsync(System.String,System.Net.Http.HttpMethod,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Creates a FlurlClient from the URL and sends an asynchronous HTTP request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="method">HTTP method of the request</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the received HttpResponseMessage.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.StringExtensions.PostXmlAsync(System.String,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Creates a FlurlClient from the URL and sends an asynchronous POST request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the received HttpResponseMessage.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.StringExtensions.PutXmlAsync(System.String,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Creates a FlurlClient from the URL and sends an asynchronous PUT request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the received HttpResponseMessage.</returns>
+        </member>
+        <member name="T:Flurl.Http.Xml.UrlExtensions">
+            <summary>
+            UrlExtensions
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.UrlExtensions.GetXmlAsync``1(Flurl.Url,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url">The URL.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>
+            A Task whose result is the XML response body deserialized to an object of type T.
+            </returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.UrlExtensions.GetXDocumentAsync(Flurl.Url,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the XML response body parsed into an XDocument.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.UrlExtensions.GetXElementsFromXPath(Flurl.Url,System.String,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="expression">The expression.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the XML response body parsed into a collection of XElements.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.UrlExtensions.GetXElementsFromXPath(Flurl.Url,System.String,System.Xml.IXmlNamespaceResolver,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an asynchronous GET request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="expression">The expression.</param>
+            <param name="resolver">The resolver.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the XML response body parsed into a collection of XElements.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.UrlExtensions.SendXmlAsync(Flurl.Url,System.Net.Http.HttpMethod,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Creates a FlurlClient from the URL and sends an asynchronous HTTP request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="method">HTTP method of the request</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the received HttpResponseMessage.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.UrlExtensions.PostXmlAsync(Flurl.Url,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Creates a FlurlClient from the URL and sends an asynchronous POST request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the received HttpResponseMessage.</returns>
+        </member>
+        <member name="M:Flurl.Http.Xml.UrlExtensions.PutXmlAsync(Flurl.Url,System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Creates a FlurlClient from the URL and sends an asynchronous PUT request.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="data">Contents of the request body.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation. Optional.</param>
+            <param name="completionOption">The HttpCompletionOption used in the request. Optional.</param>
+            <returns>A Task whose result is the received HttpResponseMessage.</returns>
+        </member>
+        <member name="T:Flurl.Http.Xml.Utf8StringWriter">
+            <summary>
+            Utf8StringWriter
+            </summary>
+            <seealso cref="T:System.IO.StringWriter" />
+        </member>
+        <member name="M:Flurl.Http.Xml.Utf8StringWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Flurl.Http.Xml.Utf8StringWriter"/> class.
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.Utf8StringWriter.#ctor(System.Text.StringBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Flurl.Http.Xml.Utf8StringWriter"/> class.
+            </summary>
+            <param name="builder">The builder.</param>
+        </member>
+        <member name="P:Flurl.Http.Xml.Utf8StringWriter.Encoding">
+            <summary>
+            Gets the encoding.
+            </summary>
+            <value>
+            The encoding.
+            </value>
+        </member>
+        <member name="T:Flurl.Http.Xml.XDocumentExtensions">
+            <summary>
+            XDocumentExtensions
+            </summary>
+        </member>
+        <member name="M:Flurl.Http.Xml.XDocumentExtensions.ToStringWithDeclaration(System.Xml.Linq.XDocument)">
+            <summary>
+            To the string with declaration.
+            </summary>
+            <param name="doc">The document.</param>
+        </member>
+    </members>
+</doc>
