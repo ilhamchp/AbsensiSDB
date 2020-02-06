@@ -35,7 +35,7 @@
             </StackPanel>
         </Grid>
         <Button  Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="601,0,605,251" Content="LOGIN" Click="Button_Click"/>
-        <TextBlock Text="Elib Developper" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="636,0,636,233" Foreground="Gray" Cursor="Hand"/>
+        <TextBlock Text="Tim Kompen JTK 2020" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="601,0,605,233" Foreground="Gray" Cursor="Hand" Width="150"/>
         <Button Content="SHUTDOWN PC" HorizontalAlignment="Left" Margin="1146,716,0,0" VerticalAlignment="Top" Width="174" Click="Button_Click_1"/>
     </Grid>
 </Window>

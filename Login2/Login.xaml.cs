@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using System.Xml;
 using Newtonsoft.Json;
 
 namespace Login2
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
-    /// 
 
     public partial class Login : Window
     {
-        User usr;
+        Mahasiswa mhs;
         System.Windows.Threading.DispatcherTimer Timer = new System.Windows.Threading.DispatcherTimer();
-        public Login(User user)
+        public Login(Mahasiswa mhsw)
         {
-            usr = user;
+            mhs = mhsw;
             InitializeComponent();
 
             Timer.Tick += new EventHandler(Timer_Click);
@@ -26,16 +21,17 @@ namespace Login2
 
             Timer.Start();
 
-            Console.WriteLine("LOGIN " + user.User_npa);
-            string js = JsonConvert.SerializeObject(user);
+            Console.WriteLine("LOGIN " + mhs.nim);
+            string js = JsonConvert.SerializeObject(mhs);
             Console.WriteLine(js);
 
             //get data from model
-            nama.Content = user.nama;
-            nim.Content = user.nim;
-            Console.WriteLine("LOGIN " + user.User_npa);
-            user.jam_masuk = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-            Console.WriteLine("Jam Masuk nyaa-> " + user.jam_masuk);
+            nama.Content = mhs.nama;
+            nim.Content = mhs.nim;
+            Console.WriteLine("LOGIN " + mhs.nim);
+            mhs.jam_masuk = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            Console.WriteLine("Jam Masuk nyaa-> " + mhs.jam_masuk);
+            Console.WriteLine("Mhs nya ada di pc -> " + mhs.no_pc);
         }
 
         // mematikan fungsi dari alt + f4
@@ -77,7 +73,7 @@ namespace Login2
         private void Button_Logout(object sender, RoutedEventArgs e)
         {
             
-            Logout logout = new Logout(usr);
+            Logout logout = new Logout(mhs);
             logout.Show();
             Close();
         }

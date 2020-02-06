@@ -7,36 +7,75 @@ using System.Windows;
 using System.Windows.Input;
 using System.Diagnostics;                   //  USE FOR ANTI KILLS
 using System.Xml;
+using System.Globalization;
 
 namespace Login2
 {
-    // Mencegah aplikasi bisa di kill
-    // WARNING : KILL PROCESS -> BSOD !!!
-    public class preventKill
+    public class Tools
     {
         [DllImport("ntdll.dll", SetLastError = true)]
         private static extern int NtSetInformationProcess(IntPtr hProcess, int processInformationClass, ref int processInformation, int processInformationLength);
 
-        public void activate(int status)
+        // Mencegah aplikasi bisa di kill
+        // WARNING : KILL PROCESS -> BSOD !!!
+
+        public void preventKill(int status)
         {
+            /*
             int BreakOnTermi = 0x1D;  //breakoftermination value
                                       //https://undocumented.ntinternals.net/index.html?page=UserMode%2FUndocumented%20Functions%2FNT%20Objects%2FProcess%2FPROCESS_INFORMATION_CLASS.html
             Process.EnterDebugMode();
             NtSetInformationProcess(Process.GetCurrentProcess().Handle, BreakOnTermi, ref status, sizeof(int));
+            */
         }
+
+        // Mencatat lokasi PC yang digunakan oleh User
+        public void readxml(Mahasiswa mhs)
+        {
+            using (XmlReader reader = XmlReader.Create(@"C:\Login\config.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        //return only when you have START tag  
+                        switch (reader.Name.ToString())
+                        {
+                            case "No":
+                                //Console.WriteLine("Name of the Element is : " + reader.ReadString());
+                                mhs.no_pc = reader.ReadString();
+                                Console.WriteLine("Nomer Pc : " + mhs.no_pc);
+                                break;
+                            case "Location":
+                                Console.WriteLine("Your Location is : " + reader.ReadString());
+                                break;
+                        }
+                    }
+                    Console.WriteLine("");
+                }
+            }
+            //Console.ReadKey();
+        }
+    }
+
+
+    public class preventKill
+    {
+        
     }
     public partial class MainWindow : Window
     {
-        preventKill disablekill = new preventKill();
+        Tools tools = new Tools();
         public MainWindow()
         {
             InitializeComponent();
-            disablekill.activate(1);
+            tools.preventKill(1);
         }
         // mematikan fungsi dari alt + f4
 
         protected override void OnPreviewKeyDown(KeyEventArgs e)
         {
+            /*
             if ((Keyboard.Modifiers == ModifierKeys.Alt && e.SystemKey == Key.F4 )||
                e.Key == Key.Delete && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control 
                )
@@ -47,7 +86,7 @@ namespace Login2
             {
                 base.OnPreviewKeyDown(e);
             }
-            
+            */
         }
 
         // Proses login, ketika tombol Login di click
@@ -86,10 +125,21 @@ namespace Login2
             //get data from json to model
             //User user = JsonConvert.DeserializeObject<User>(jsonText);
             Mahasiswa mhs = JsonConvert.DeserializeObject<Mahasiswa>(jsonText);
-            readxml(mhs);
-            //if (user.User_npa != null && user.nim == nim)
+            try
+            {
+                DateTime dt = DateTime.ParseExact(mhs.tanggal_lahir, "yyyy-MM-dd",
+                                  CultureInfo.InvariantCulture);
+                mhs.tanggal_lahir = dt.ToString("ddMMyyyy");
+            }
+            catch (FormatException fe)
+            {
+                Console.WriteLine(fe);
+            }
             if (mhs.nim != null && mhs.tanggal_lahir == TglLahir)
             {
+                tools.readxml(mhs);
+                Console.WriteLine("Running on PC : " + mhs.no_pc);
+                /*
                 //Console.WriteLine("fakyu");
                 //this.Close();
                 //MainWindow signIn = new MainWindow();
@@ -109,9 +159,10 @@ namespace Login2
                 }
                 //-------------------------End Penambahan User Active 1--------------------------------------
 
-                Login login = new Login(user);
+                Login login = new Login(mhs);
                 login.Show();
-                disablekill.activate(0);
+                tools.preventKill(0);
+                */
                 Close();
             }
             fail.IsOpen = true;
@@ -119,37 +170,9 @@ namespace Login2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            disablekill.activate(0);
+            tools.preventKill(0);
             //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
             Close();
-        }
-
-        // Mencatat lokasi PC yang digunakan oleh User ELIB
-        public static void readxml(Mahasiswa mhs)
-        {
-            using (XmlReader reader = XmlReader.Create(@"C:\Login\config.xml"))
-            {
-                while (reader.Read())
-                {
-                    if (reader.IsStartElement())
-                    {
-                        //return only when you have START tag  
-                        switch (reader.Name.ToString())
-                        {
-                            case "No":
-                                //Console.WriteLine("Name of the Element is : " + reader.ReadString());
-                                mhs.no_pc = reader.ReadString();
-                                Console.WriteLine("Nomer Pc : " + mhs.no_pc);
-                                break;
-                            case "Location":
-                                Console.WriteLine("Your Location is : " + reader.ReadString());
-                                break;
-                        }
-                    }
-                    Console.WriteLine("");
-                }
-            }
-            //Console.ReadKey();
         }
     }
 }

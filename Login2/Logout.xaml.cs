@@ -14,20 +14,20 @@ namespace Login2
     /// </summary>
     public partial class Logout : Window
     {
-        preventKill disablekill = new preventKill();
+        Tools tools = new Tools();
         private static readonly HttpClient client = new HttpClient();
-        User usr;
-        public Logout(User user)
+        Mahasiswa mhs;
+        public Logout(Mahasiswa mhsw)
         {
             InitializeComponent();
-            usr = user;
-            Console.WriteLine("Jam Masuk nyaa-> " + user.jam_masuk);
+            mhs = mhsw;
+            Console.WriteLine("Jam Masuk nyaa-> " + mhs.jam_masuk);
         }
 
-        public void DeActive(User user)
+        public void DeActive(Mahasiswa mhsw)
         {
             string URI = "http://encode.jtk.polban.ac.id/elib/api/login/aktif.php";
-            string myParameters = "npa=" + user.User_npa + "&active=0";
+            string myParameters = "nim=" + mhsw.nim + "&active=0";
 
             using (WebClient wc = new WebClient())
             {
@@ -40,9 +40,9 @@ namespace Login2
         {
             if (this.kegiatan.Text != "")
             {
-                usr.kegiatan = kegiatan.Text;
-                usr.jam_keluar = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-                string js = JsonConvert.SerializeObject(usr);
+                mhs.kegiatan = kegiatan.Text;
+                mhs.jam_keluar = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                string js = JsonConvert.SerializeObject(mhs);
                 Console.WriteLine(js);
 
 
@@ -74,8 +74,8 @@ namespace Login2
 
                 if (status == 201)
                 {
-                    DeActive(usr);
-                    disablekill.activate(0);
+                    DeActive(mhs);
+                    tools.preventKill(0);
                     //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
                     Console.WriteLine("matiiii");
                 } else if (status == 400)

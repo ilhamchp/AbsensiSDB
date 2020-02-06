@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Biling Elib.exe.manifest" size="7897">
+    <dependentAssembly dependencyType="install" codebase="Biling Elib.exe.manifest" size="7895">
       <assemblyIdentity name="Biling Elib.exe" version="1.0.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JFe93XTEVwCGE7f82Eam9ijSaQj14TaVdcgla6SrIEU=</dsig:DigestValue>
+        <dsig:DigestValue>i2lhrfiH5zIzKZ/6Aee8EqzcFiGdWOJC00bZZaVswgE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

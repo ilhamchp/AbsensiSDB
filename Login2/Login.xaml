@@ -15,8 +15,8 @@
     <Grid RenderTransformOrigin="0.659,1.364">
         <Label  Content="12 : 00 : 00" Height="67" HorizontalAlignment="Center" Name="label1"  Foreground="#3498db" VerticalAlignment="Top" Width="252" FontSize="45"  FontWeight="Bold" Margin="11,1,10,0" />
         <Label  Content="Senin , 12-12-2018" Height="67" HorizontalAlignment="Center" Name="tanggal"  Foreground="#000" VerticalAlignment="Top" Width="252" FontSize="20"  FontWeight="Bold" Margin="11,55,10,0" />
-        <Label  Content="Rizal Muhammad" Height="43" HorizontalAlignment="Center" Name="nama"  Foreground="#000" VerticalAlignment="Top" Width="252" FontSize="20"  Margin="10,84,11,0" />
-        <Label  Content="161511062" Height="43" HorizontalAlignment="Center" Name="nim"  Foreground="#000" VerticalAlignment="Top" Width="252" FontSize="20"  Margin="10,114,11,0" />
+        <Label  Content="Ilham Cahyahadi P" Height="43" HorizontalAlignment="Center" Name="nama"  Foreground="#000" VerticalAlignment="Top" Width="252" FontSize="20"  Margin="10,84,11,0" />
+        <Label  Content="171511042" Height="43" HorizontalAlignment="Center" Name="nim"  Foreground="#000" VerticalAlignment="Top" Width="252" FontSize="20"  Margin="10,114,11,0" />
         <Button  Width="139" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,134,0" Content="HIDE" Click="Button_Hiden"/>
         <Button  Width="134" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="139,0,0,0" Content="LOGOUT" Click="Button_Logout"/>
     </Grid>
