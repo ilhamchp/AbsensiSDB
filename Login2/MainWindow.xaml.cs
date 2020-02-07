@@ -90,7 +90,6 @@ namespace Login2
         // Proses login, ketika tombol Login di click
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            fail.IsOpen = false;
             MainWindow home = new MainWindow();
 
             //string npa = NPAText.Text;
@@ -123,12 +122,20 @@ namespace Login2
             //Stream ds = req.GetRequestStream();
             //ds.Write(byteArray, 0, byteArray.Length);
             //ds.Close();
-
-            var response = (HttpWebResponse)req.GetResponse();
-            string jsonText;
-            using (var sr = new StreamReader(response.GetResponseStream()))
+            string jsonText = null;
+            try
             {
-                jsonText = sr.ReadToEnd();
+                var response = (HttpWebResponse)req.GetResponse();
+                using (var sr = new StreamReader(response.GetResponseStream()))
+                {
+                    jsonText = sr.ReadToEnd();
+                }
+            }catch(WebException w)
+            {
+                Console.WriteLine(w.Message);
+                MessageBox.Show("Terjadi kesalahan pada jaringan, silakan coba lagi!", "ERROR");
+                this.NIMText.Focus();
+                return;
             }
             //var nama = js["nama"];
 
@@ -197,6 +204,7 @@ namespace Login2
             tools.preventKill(0);
             //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
             Close();
+            System.Environment.Exit(0);
         }
     }
 }

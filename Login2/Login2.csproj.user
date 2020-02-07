@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>C:\Users\Cahya\Documents\VStudio\Deploy\|C:\Users\Hari\Desktop\deploy\|C:\Users\Hari\Desktop\ELIB\|\\localhost\Users\Hari\Desktop\deploy\|publish\</PublishUrlHistory>
+    <PublishUrlHistory>D:\Project\Deploy\|C:\Users\Cahya\Documents\VStudio\Deploy\|C:\Users\Hari\Desktop\deploy\|C:\Users\Hari\Desktop\ELIB\|\\localhost\Users\Hari\Desktop\deploy\</PublishUrlHistory>
     <InstallUrlHistory>\\localhost\Users\Hari\Desktop\deploy\|\\localhost\Users\Hari\Desktop\ELIB\</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />

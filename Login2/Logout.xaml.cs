@@ -28,16 +28,26 @@ namespace Login2
 
         public void DeActive(Mahasiswa mhsw)
         {
-            //--------------------------- Menonaktifkan Status User --------------------------------------
-            string URI = "http://127.0.0.1:8000/api/status/deactivate/" + mhsw.nim;
-            string myParameters = "";
-
-            using (WebClient wc = new WebClient())
+            try
             {
-                wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                string HtmlResult = wc.UploadString(URI, "PUT", myParameters);
+                //--------------------------- Menonaktifkan Status User --------------------------------------
+                string URI = "http://127.0.0.1:8000/api/status/deactivate/" + mhsw.nim;
+                string myParameters = "";
+
+                using (WebClient wc = new WebClient())
+                {
+                    wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                    string HtmlResult = wc.UploadString(URI, "PUT", myParameters);
+                }
+                //------------------------- End Menonaktifkan Status User ------------------------------------
             }
-            //------------------------- End Menonaktifkan Status User ------------------------------------
+            catch (WebException w)
+            {
+                Console.WriteLine(w.Message);
+                MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR");
+                this.kegiatan.Focus();
+                return;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,13 +65,22 @@ namespace Login2
                 httpWebRequest.Method = "POST";
 
 
-            
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-                {
 
-                    streamWriter.Write(js);
-                    streamWriter.Flush();
-                    streamWriter.Close();
+                try
+                {
+                    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                    {
+
+                        streamWriter.Write(js);
+                        streamWriter.Flush();
+                        streamWriter.Close();
+                    }
+                }catch(WebException w)
+                {
+                    Console.WriteLine(w.Message);
+                    MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR");
+                    this.kegiatan.Focus();
+                    return;
                 }
 
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -78,13 +97,14 @@ namespace Login2
                 {
                     DeActive(mhs);
                     tools.preventKill(0);
-                    Close();
-                    //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
                     Console.WriteLine("matiiii");
-                } else if (status == 400)
+                    //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
+                    System.Environment.Exit(0);
+                }
+                else if (status == 400)
                 {
                     Console.WriteLine("Error jaringan");
-                    MessageBox.Show("Terjadi kesalahan terhadap jaringan, silahkan coba lagi !!", "ERROR");
+                    MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR");
                     this.kegiatan.Focus();
                 }
             }
