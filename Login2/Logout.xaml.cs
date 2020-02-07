@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net;
 using System.IO;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Login2
 {
@@ -21,38 +23,40 @@ namespace Login2
         {
             InitializeComponent();
             mhs = mhsw;
-            Console.WriteLine("Jam Masuk nyaa-> " + mhs.jam_masuk);
+            Console.WriteLine("Jam Masuk nyaa-> " + mhs.waktu_masuk);
         }
 
         public void DeActive(Mahasiswa mhsw)
         {
-            string URI = "http://encode.jtk.polban.ac.id/elib/api/login/aktif.php";
-            string myParameters = "nim=" + mhsw.nim + "&active=0";
+            //--------------------------- Menonaktifkan Status User --------------------------------------
+            string URI = "http://127.0.0.1:8000/api/status/deactivate/" + mhsw.nim;
+            string myParameters = "";
 
             using (WebClient wc = new WebClient())
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                string HtmlResult = wc.UploadString(URI, myParameters);
+                string HtmlResult = wc.UploadString(URI, "PUT", myParameters);
             }
+            //------------------------- End Menonaktifkan Status User ------------------------------------
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (this.kegiatan.Text != "")
+            if(this.kegiatan.Text != "")
             {
                 mhs.kegiatan = kegiatan.Text;
-                mhs.jam_keluar = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                mhs.waktu_keluar = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                 string js = JsonConvert.SerializeObject(mhs);
                 Console.WriteLine(js);
 
-
+                /*
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://encode.jtk.polban.ac.id/elib/api/login/create.php");
 
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
 
 
-
+            
                 using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
 
@@ -71,7 +75,6 @@ namespace Login2
                     var result = streamReader.ReadToEnd();
                     Console.WriteLine(result);
                 }
-
                 if (status == 201)
                 {
                     DeActive(mhs);
@@ -82,6 +85,7 @@ namespace Login2
                 {
                     Console.WriteLine("Error jaringan");
                 }
+                */
             }
             else
             {

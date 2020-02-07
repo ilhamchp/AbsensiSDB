@@ -8,6 +8,9 @@ using System.Windows.Input;
 using System.Diagnostics;                   //  USE FOR ANTI KILLS
 using System.Xml;
 using System.Globalization;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Collections.Generic;
 
 namespace Login2
 {
@@ -58,11 +61,6 @@ namespace Login2
         }
     }
 
-
-    public class preventKill
-    {
-        
-    }
     public partial class MainWindow : Window
     {
         Tools tools = new Tools();
@@ -100,10 +98,14 @@ namespace Login2
             string NIM = NIMText.Text;
             if (TglLahir.Equals(""))
             {
+                MessageBox.Show("Tanggal lahir tidak boleh kosong!", "ERROR");
+                this.TglLahirText.Focus();
                 return;
             }
             if (NIM.Equals(""))
             {
+                MessageBox.Show("NIM tidak boleh kosong!", "ERROR");
+                this.NIMText.Focus();
                 return;
             }
             // WebRequest req = WebRequest.Create("http://10.10.0.9/elib/api/user/read_one.php?npa=" + npa);
@@ -168,15 +170,26 @@ namespace Login2
                         string HtmlResult = wc.UploadString(URI,"PUT", myParameters);
                     }
                     //-------------------------End Penambahan User Active 1--------------------------------------
-                    /*
+                    
                     Login login = new Login(mhs);
                     login.Show();
                     tools.preventKill(0);
-                    */
+                    
                     Close();
                 }
+                else
+                {
+                    MessageBox.Show("NIM atau tanggal lahir salah !", "ERROR");
+                    this.NIMText.Focus();
+                }
             }
-            fail.IsOpen = true;
+            else
+            {
+
+                MessageBox.Show("NIM atau tanggal lahir salah !", "ERROR");
+                this.NIMText.Focus();
+            }
+            //fail.IsOpen = true;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -29,8 +29,8 @@ namespace Login2
             nama.Content = mhs.nama;
             nim.Content = mhs.nim;
             Console.WriteLine("LOGIN " + mhs.nim);
-            mhs.jam_masuk = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-            Console.WriteLine("Jam Masuk nyaa-> " + mhs.jam_masuk);
+            mhs.waktu_masuk = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            Console.WriteLine("Jam Masuk nyaa-> " + mhs.waktu_masuk);
             Console.WriteLine("Mhs nya ada di pc -> " + mhs.no_pc);
         }
 

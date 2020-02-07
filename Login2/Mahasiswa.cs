@@ -13,8 +13,8 @@ namespace Login2
         public string tanggal_lahir { get; set; }
         public string kegiatan { get; set; }
         public string no_pc { get; set; }
-        public string jam_masuk { get; set; }
-        public string jam_keluar { get; set; }
+        public string waktu_masuk { get; set; }
+        public string waktu_keluar { get; set; }
         public int code { get; set; }
     }
 }
