@@ -49,8 +49,7 @@ namespace Login2
                 string js = JsonConvert.SerializeObject(mhs);
                 Console.WriteLine(js);
 
-                /*
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://encode.jtk.polban.ac.id/elib/api/login/create.php");
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8000/api/log/savedata");
 
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
@@ -69,23 +68,25 @@ namespace Login2
 
                 Console.WriteLine((int)httpResponse.StatusCode);
                 int status = (int)httpResponse.StatusCode;
-
+                Console.WriteLine("Status : " + status);
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
                     var result = streamReader.ReadToEnd();
                     Console.WriteLine(result);
                 }
-                if (status == 201)
+                if (status == 200)
                 {
                     DeActive(mhs);
                     tools.preventKill(0);
+                    Close();
                     //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
                     Console.WriteLine("matiiii");
                 } else if (status == 400)
                 {
                     Console.WriteLine("Error jaringan");
+                    MessageBox.Show("Terjadi kesalahan terhadap jaringan, silahkan coba lagi !!", "ERROR");
+                    this.kegiatan.Focus();
                 }
-                */
             }
             else
             {

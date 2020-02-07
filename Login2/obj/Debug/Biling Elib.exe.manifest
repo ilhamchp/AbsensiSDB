@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Biling Elib.exe" size="2695168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Biling Elib.exe" size="2695680">
       <assemblyIdentity name="Biling Elib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WcYk9B3cHVsDpegqm7TiI+CEucpUFSLT7TlyqpBE4Xc=</dsig:DigestValue>
+        <dsig:DigestValue>kBRp/1fSRhUIGzNZ6emuZQZ735OW/YG/R9yj8+dYDYw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
