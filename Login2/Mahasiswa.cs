@@ -15,5 +15,6 @@ namespace Login2
         public string no_pc { get; set; }
         public string jam_masuk { get; set; }
         public string jam_keluar { get; set; }
+        public int code { get; set; }
     }
 }

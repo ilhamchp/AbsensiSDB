@@ -98,6 +98,14 @@ namespace Login2
             //string npa = NPAText.Text;
             string TglLahir = TglLahirText.Text;
             string NIM = NIMText.Text;
+            if (TglLahir.Equals(""))
+            {
+                return;
+            }
+            if (NIM.Equals(""))
+            {
+                return;
+            }
             // WebRequest req = WebRequest.Create("http://10.10.0.9/elib/api/user/read_one.php?npa=" + npa);
             //WebRequest req = WebRequest.Create("http://encode.jtk.polban.ac.id/elib/api/user/read_one.php?npa=" + npa);
             WebRequest req = WebRequest.Create("http://127.0.0.1:8000/api/mahasiswa/" + NIM);
@@ -125,45 +133,48 @@ namespace Login2
             //get data from json to model
             //User user = JsonConvert.DeserializeObject<User>(jsonText);
             Mahasiswa mhs = JsonConvert.DeserializeObject<Mahasiswa>(jsonText);
-            try
+            if (mhs.code.Equals(200))
             {
-                DateTime dt = DateTime.ParseExact(mhs.tanggal_lahir, "yyyy-MM-dd",
-                                  CultureInfo.InvariantCulture);
-                mhs.tanggal_lahir = dt.ToString("ddMMyyyy");
-            }
-            catch (FormatException fe)
-            {
-                Console.WriteLine(fe);
-            }
-            if (mhs.nim != null && mhs.tanggal_lahir == TglLahir)
-            {
-                tools.readxml(mhs);
-                Console.WriteLine("Running on PC : " + mhs.no_pc);
-                /*
-                //Console.WriteLine("fakyu");
-                //this.Close();
-                //MainWindow signIn = new MainWindow();
-                //signIn.ShowDialog();
-                //login.TextBlockName.Text = nama;
-
-                //---------------------------Penambahan User Active 1--------------------------------------
-                //string URI = "http://encode.jtk.polban.ac.id/elib/api/login/aktif.php";
-                //string myParameters = "npa="+ user.User_npa + "&active=1";
-                string URI = "http://127.0.0.1/api/status/";
-                string myParameters = "nim_pengguna=" + mhs.nim + "&active=1";
-
-                using (WebClient wc = new WebClient())
+                try
                 {
-                    wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                    string HtmlResult = wc.UploadString(URI, myParameters);
+                    DateTime dt = DateTime.ParseExact(mhs.tanggal_lahir, "yyyy-MM-dd",
+                                      CultureInfo.InvariantCulture);
+                    mhs.tanggal_lahir = dt.ToString("ddMMyyyy");
                 }
-                //-------------------------End Penambahan User Active 1--------------------------------------
+                catch (FormatException fe)
+                {
+                    Console.WriteLine(fe);
+                }
+                if (mhs.nim != null && mhs.tanggal_lahir == TglLahir)
+                {
+                    tools.readxml(mhs);
+                    Console.WriteLine("Running on PC : " + mhs.no_pc);
+                    /*
+                    //Console.WriteLine("fakyu");
+                    //this.Close();
+                    //MainWindow signIn = new MainWindow();
+                    //signIn.ShowDialog();
+                    //login.TextBlockName.Text = nama;
 
-                Login login = new Login(mhs);
-                login.Show();
-                tools.preventKill(0);
-                */
-                Close();
+                    //---------------------------Penambahan User Active 1--------------------------------------
+                    //string URI = "http://encode.jtk.polban.ac.id/elib/api/login/aktif.php";
+                    //string myParameters = "npa="+ user.User_npa + "&active=1";
+                    string URI = "http://127.0.0.1/api/status/";
+                    string myParameters = "nim_pengguna=" + mhs.nim + "&active=1";
+
+                    using (WebClient wc = new WebClient())
+                    {
+                        wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                        string HtmlResult = wc.UploadString(URI, myParameters);
+                    }
+                    //-------------------------End Penambahan User Active 1--------------------------------------
+
+                    Login login = new Login(mhs);
+                    login.Show();
+                    tools.preventKill(0);
+                    */
+                    Close();
+                }
             }
             fail.IsOpen = true;
         }

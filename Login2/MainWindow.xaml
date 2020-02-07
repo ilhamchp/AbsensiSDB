@@ -17,25 +17,24 @@
 
     <Grid Margin="0,0,10,-43">
         <Image Source="Assets/BG 1.png" Stretch="Fill" Margin="0,0,-10,41"/>
-        <Popup x:Name="fail" PlacementTarget="{Binding ElementName=MainPanel}" Placement="Center">
-            <TextBlock Background="#FFF1F1F1" FontSize="18" Text="NIM ATAU TANGGAL LAHIR ANDA SALAH" RenderTransformOrigin="0.5,-0.15" Height="34" Width="396"/>
-        </Popup>
-
-        <Rectangle Width="280" Height="240" VerticalAlignment="Bottom" Margin="538,0,538,295" RadiusY="10" RadiusX="10" Fill="White">
+        <Rectangle Width="280" Height="240" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,30" RadiusY="10" RadiusX="10" Fill="White">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
             </Rectangle.Effect>
         </Rectangle>
-        <Grid VerticalAlignment="Bottom" Margin="538,0,538,295" Height="240" Width="280">
-            <Label Content="SILAKAN LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18"/>
+        <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,30" Height="240" Width="280">
+            <Popup x:Name="fail" PlacementTarget="{Binding ElementName=MainPanel}" Placement="Top">
+                <TextBlock Background="#FFF1F1F1" FontSize="18" Text="NIM ATAU TANGGAL LAHIR ANDA SALAH" RenderTransformOrigin="0.5,-0.15" Height="34" Width="396"/>
+            </Popup>
+            <Label Content="SILAKAN LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20" Foreground="Gray" FontSize="18"/>
 
             <StackPanel VerticalAlignment="Center" Margin="15">
                 <TextBox x:Name="NIMText" Margin="0,10" materialDesign:HintAssist.Hint="NIM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
                 <TextBox x:Name="TglLahirText" Margin="0,10" materialDesign:HintAssist.Hint="Tanggal Lahir" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
             </StackPanel>
         </Grid>
-        <Button  Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="601,0,605,251" Content="LOGIN" Click="Button_Click"/>
-        <TextBlock Text="Tim Kompen JTK 2020" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="601,0,605,233" Foreground="Gray" Cursor="Hand" Width="150"/>
-        <Button Content="SHUTDOWN PC" HorizontalAlignment="Left" Margin="1146,716,0,0" VerticalAlignment="Top" Width="174" Click="Button_Click_1"/>
+        <Button  Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,270,0,0" Content="LOGIN" Click="Button_Click"/>
+        <TextBlock Text="Tim Kompen JTK 2020" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,350,0,0" Foreground="Gray" Cursor="Hand" Width="150"/>
+        <Button  Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,100" Content="SHUTDOWN PC" Click="Button_Click_1"/>
     </Grid>
 </Window>
