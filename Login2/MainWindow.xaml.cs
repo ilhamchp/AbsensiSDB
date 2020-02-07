@@ -149,7 +149,7 @@ namespace Login2
                 {
                     tools.readxml(mhs);
                     Console.WriteLine("Running on PC : " + mhs.no_pc);
-                    /*
+                    
                     //Console.WriteLine("fakyu");
                     //this.Close();
                     //MainWindow signIn = new MainWindow();
@@ -159,16 +159,16 @@ namespace Login2
                     //---------------------------Penambahan User Active 1--------------------------------------
                     //string URI = "http://encode.jtk.polban.ac.id/elib/api/login/aktif.php";
                     //string myParameters = "npa="+ user.User_npa + "&active=1";
-                    string URI = "http://127.0.0.1/api/status/";
-                    string myParameters = "nim_pengguna=" + mhs.nim + "&active=1";
+                    string URI = "http://127.0.0.1:8000/api/status/activate/" + mhs.nim;
+                    string myParameters = "nomor_pc=" + mhs.no_pc;
 
                     using (WebClient wc = new WebClient())
                     {
                         wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                        string HtmlResult = wc.UploadString(URI, myParameters);
+                        string HtmlResult = wc.UploadString(URI,"PUT", myParameters);
                     }
                     //-------------------------End Penambahan User Active 1--------------------------------------
-
+                    /*
                     Login login = new Login(mhs);
                     login.Show();
                     tools.preventKill(0);
