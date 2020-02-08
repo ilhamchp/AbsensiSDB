@@ -74,3 +74,40 @@ D:\Elib Login\Login2\obj\Debug\Biling Elib.application
 D:\Elib Login\Login2\obj\Debug\Login2.csproj.CopyComplete
 D:\Elib Login\Login2\obj\Debug\Biling Elib.exe
 D:\Elib Login\Login2\obj\Debug\Biling Elib.pdb
+D:\Project\AbsensiSDB\Login2\bin\Debug\Absensi SDB.exe.config
+D:\Project\AbsensiSDB\Login2\bin\Debug\Absensi SDB.exe.manifest
+D:\Project\AbsensiSDB\Login2\bin\Debug\Absensi SDB.application
+D:\Project\AbsensiSDB\Login2\bin\Debug\Absensi SDB.exe
+D:\Project\AbsensiSDB\Login2\bin\Debug\Absensi SDB.pdb
+D:\Project\AbsensiSDB\Login2\bin\Debug\Flurl.dll
+D:\Project\AbsensiSDB\Login2\bin\Debug\Flurl.Http.dll
+D:\Project\AbsensiSDB\Login2\bin\Debug\Flurl.Http.Xml.dll
+D:\Project\AbsensiSDB\Login2\bin\Debug\MaterialDesignColors.dll
+D:\Project\AbsensiSDB\Login2\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Project\AbsensiSDB\Login2\bin\Debug\Newtonsoft.Json.dll
+D:\Project\AbsensiSDB\Login2\bin\Debug\Flurl.xml
+D:\Project\AbsensiSDB\Login2\bin\Debug\Flurl.Http.xml
+D:\Project\AbsensiSDB\Login2\bin\Debug\Flurl.Http.Xml.xml
+D:\Project\AbsensiSDB\Login2\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Project\AbsensiSDB\Login2\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Project\AbsensiSDB\Login2\bin\Debug\Newtonsoft.Json.pdb
+D:\Project\AbsensiSDB\Login2\bin\Debug\Newtonsoft.Json.xml
+D:\Project\AbsensiSDB\Login2\obj\Debug\Login2.csprojAssemblyReference.cache
+D:\Project\AbsensiSDB\Login2\obj\Debug\Login.g.cs
+D:\Project\AbsensiSDB\Login2\obj\Debug\Logout.g.cs
+D:\Project\AbsensiSDB\Login2\obj\Debug\MainWindow.g.cs
+D:\Project\AbsensiSDB\Login2\obj\Debug\App.g.cs
+D:\Project\AbsensiSDB\Login2\obj\Debug\Absensi SDB_MarkupCompile.cache
+D:\Project\AbsensiSDB\Login2\obj\Debug\Absensi SDB_MarkupCompile.lref
+D:\Project\AbsensiSDB\Login2\obj\Debug\App.baml
+D:\Project\AbsensiSDB\Login2\obj\Debug\Login.baml
+D:\Project\AbsensiSDB\Login2\obj\Debug\Logout.baml
+D:\Project\AbsensiSDB\Login2\obj\Debug\MainWindow.baml
+D:\Project\AbsensiSDB\Login2\obj\Debug\Absensi SDB.g.resources
+D:\Project\AbsensiSDB\Login2\obj\Debug\Elib.Properties.Resources.resources
+D:\Project\AbsensiSDB\Login2\obj\Debug\Login2.csproj.GenerateResource.cache
+D:\Project\AbsensiSDB\Login2\obj\Debug\Absensi SDB.exe.manifest
+D:\Project\AbsensiSDB\Login2\obj\Debug\Absensi SDB.application
+D:\Project\AbsensiSDB\Login2\obj\Debug\Login2.csproj.CopyComplete
+D:\Project\AbsensiSDB\Login2\obj\Debug\Absensi SDB.exe
+D:\Project\AbsensiSDB\Login2\obj\Debug\Absensi SDB.pdb

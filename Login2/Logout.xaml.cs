@@ -44,7 +44,7 @@ namespace Login2
             catch (WebException w)
             {
                 Console.WriteLine(w.Message);
-                MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR");
+                MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.kegiatan.Focus();
                 return;
             }
@@ -78,7 +78,7 @@ namespace Login2
                 }catch(WebException w)
                 {
                     Console.WriteLine(w.Message);
-                    MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR");
+                    MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     this.kegiatan.Focus();
                     return;
                 }
@@ -104,13 +104,13 @@ namespace Login2
                 else if (status == 400)
                 {
                     Console.WriteLine("Error jaringan");
-                    MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR");
+                    MessageBox.Show("Terjadi kesalahan pada jaringan, silahkan coba lagi !!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     this.kegiatan.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Harap masukkan kegiatan !!", "ERROR");
+                MessageBox.Show("Harap masukkan kegiatan !!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.kegiatan.Focus();
             }
 

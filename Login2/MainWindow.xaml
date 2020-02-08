@@ -16,7 +16,7 @@
         WindowState ="Maximized" Icon="Assets/himakom.ico">
 
     <Grid Margin="0,0,10,-43">
-        <Image Source="Assets/BG 1.png" Stretch="Fill" Margin="0,0,-10,41"/>
+        <Image Source="Assets/BG.png" Stretch="Fill" Margin="0,0,-10,41"/>
         <Rectangle Width="280" Height="240" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,30" RadiusY="10" RadiusX="10" Fill="White">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
@@ -32,6 +32,6 @@
         </Grid>
         <Button  Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,270,0,0" Content="LOGIN" Click="Button_Click"/>
         <TextBlock Text="Tim Kompen JTK 2020" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,350,0,0" Foreground="Gray" Cursor="Hand" Width="150"/>
-        <Button  Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,100" Content="SHUTDOWN PC" Click="Button_Click_1"/>
+        <Button  Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,75" Content="SHUTDOWN PC" Click="Button_Click_1"/>
     </Grid>
 </Window>

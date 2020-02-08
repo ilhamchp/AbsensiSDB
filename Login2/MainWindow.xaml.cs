@@ -73,7 +73,6 @@ namespace Login2
 
         protected override void OnPreviewKeyDown(KeyEventArgs e)
         {
-            /*
             if ((Keyboard.Modifiers == ModifierKeys.Alt && e.SystemKey == Key.F4 )||
                e.Key == Key.Delete && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control 
                )
@@ -84,7 +83,6 @@ namespace Login2
             {
                 base.OnPreviewKeyDown(e);
             }
-            */
         }
 
         // Proses login, ketika tombol Login di click
@@ -93,19 +91,30 @@ namespace Login2
             MainWindow home = new MainWindow();
 
             //string npa = NPAText.Text;
-            string TglLahir = TglLahirText.Text;
             string NIM = NIMText.Text;
+            string TglLahir = TglLahirText.Text;
+            if (NIM.Equals(""))
+            {
+                MessageBox.Show("NIM tidak boleh kosong!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.NIMText.Focus();
+                return;
+            }
             if (TglLahir.Equals(""))
             {
-                MessageBox.Show("Tanggal lahir tidak boleh kosong!", "ERROR");
+                MessageBox.Show("Tanggal lahir tidak boleh kosong!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.TglLahirText.Focus();
                 return;
             }
-            if (NIM.Equals(""))
+
+
+            // Force login untuk keluar aplikasi
+            if (NIM.ToLower().Equals("teknisi"))
             {
-                MessageBox.Show("NIM tidak boleh kosong!", "ERROR");
-                this.NIMText.Focus();
-                return;
+                if (TglLahir.ToLower().Equals("jtkpolban"))
+                {
+                    MessageBox.Show("FORCE LOGIN DETECTED, EXITING PROGRAM...", "SUCCESS", MessageBoxButton.OK, MessageBoxImage.Information);
+                    System.Environment.Exit(0);
+                }
             }
             // WebRequest req = WebRequest.Create("http://10.10.0.9/elib/api/user/read_one.php?npa=" + npa);
             //WebRequest req = WebRequest.Create("http://encode.jtk.polban.ac.id/elib/api/user/read_one.php?npa=" + npa);
@@ -133,7 +142,7 @@ namespace Login2
             }catch(WebException w)
             {
                 Console.WriteLine(w.Message);
-                MessageBox.Show("Terjadi kesalahan pada jaringan, silakan coba lagi!", "ERROR");
+                MessageBox.Show("Terjadi kesalahan pada jaringan, silakan coba lagi!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.NIMText.Focus();
                 return;
             }
@@ -186,14 +195,13 @@ namespace Login2
                 }
                 else
                 {
-                    MessageBox.Show("NIM atau tanggal lahir salah !", "ERROR");
+                    MessageBox.Show("NIM atau tanggal lahir salah !", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     this.NIMText.Focus();
                 }
             }
             else
             {
-
-                MessageBox.Show("NIM atau tanggal lahir salah !", "ERROR");
+                MessageBox.Show("NIM atau tanggal lahir salah !", "ERROR",MessageBoxButton.OK,MessageBoxImage.Error);
                 this.NIMText.Focus();
             }
             //fail.IsOpen = true;
