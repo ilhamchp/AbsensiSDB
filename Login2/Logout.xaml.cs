@@ -6,14 +6,9 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net;
 using System.IO;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Login2
 {
-    /// <summary>
-    /// Interaction logic for logout.xaml
-    /// </summary>
     public partial class Logout : Window
     {
         Tools tools = new Tools();
@@ -54,18 +49,14 @@ namespace Login2
         {
             if(this.kegiatan.Text != "")
             {
+                // Mengirim log user ke server
                 mhs.kegiatan = kegiatan.Text;
                 mhs.waktu_keluar = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                 string js = JsonConvert.SerializeObject(mhs);
                 Console.WriteLine(js);
-
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8000/api/log/savedata");
-
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
-
-
-
                 try
                 {
                     using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
@@ -82,9 +73,7 @@ namespace Login2
                     this.kegiatan.Focus();
                     return;
                 }
-
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-
                 Console.WriteLine((int)httpResponse.StatusCode);
                 int status = (int)httpResponse.StatusCode;
                 Console.WriteLine("Status : " + status);
@@ -93,12 +82,14 @@ namespace Login2
                     var result = streamReader.ReadToEnd();
                     Console.WriteLine(result);
                 }
+
                 if (status == 200)
                 {
+                    // Jika pengiriman log ke server berhasil,
+                    // lakukan deaktivasi user matikan komputer
                     DeActive(mhs);
-                    tools.preventKill(0);
-                    Console.WriteLine("matiiii");
-                    //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
+                    //tools.preventKill(0);
+                    System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
                     System.Environment.Exit(0);
                 }
                 else if (status == 400)
@@ -113,7 +104,6 @@ namespace Login2
                 MessageBox.Show("Harap masukkan kegiatan !!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.kegiatan.Focus();
             }
-
         }
 
         // mematikan fungsi dari alt + f4

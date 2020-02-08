@@ -14,11 +14,8 @@ namespace Login2
         {
             mhs = mhsw;
             InitializeComponent();
-
             Timer.Tick += new EventHandler(Timer_Click);
-
             Timer.Interval = new TimeSpan(0, 0, 1);
-
             Timer.Start();
 
             Console.WriteLine("LOGIN " + mhs.nim);
@@ -52,15 +49,10 @@ namespace Login2
         private void Timer_Click(object sender, EventArgs e)
 
         {
-
             DateTime d;
-
             d = DateTime.Now;
-
             label1.Content = d.Hour + " : " + d.Minute + " : " + d.Second;
             tanggal.Content = d.DayOfWeek.ToString() + ", " + d.Day + "/" + d.Month + "/" + d.Year;
-
-
         }
 
 
@@ -72,7 +64,6 @@ namespace Login2
 
         private void Button_Logout(object sender, RoutedEventArgs e)
         {
-            
             Logout logout = new Logout(mhs);
             logout.Show();
             Close();

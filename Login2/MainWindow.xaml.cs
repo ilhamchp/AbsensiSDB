@@ -8,28 +8,26 @@ using System.Windows.Input;
 using System.Diagnostics;                   //  USE FOR ANTI KILLS
 using System.Xml;
 using System.Globalization;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Collections.Generic;
 
 namespace Login2
 {
     public class Tools
     {
+        // Mencegah aplikasi bisa di kill
+        // WARNING : KILL PROCESS -> BSOD !!!
+        // ** deprecated karena membutuhkan UAC,
+        // sehingga aplikasi tidak dapat digunakan
+        // saat windows startup
+
         [DllImport("ntdll.dll", SetLastError = true)]
         private static extern int NtSetInformationProcess(IntPtr hProcess, int processInformationClass, ref int processInformation, int processInformationLength);
 
-        // Mencegah aplikasi bisa di kill
-        // WARNING : KILL PROCESS -> BSOD !!!
-
         public void preventKill(int status)
         {
-            /*
             int BreakOnTermi = 0x1D;  //breakoftermination value
                                       //https://undocumented.ntinternals.net/index.html?page=UserMode%2FUndocumented%20Functions%2FNT%20Objects%2FProcess%2FPROCESS_INFORMATION_CLASS.html
             Process.EnterDebugMode();
             NtSetInformationProcess(Process.GetCurrentProcess().Handle, BreakOnTermi, ref status, sizeof(int));
-            */
         }
 
         // Mencatat lokasi PC yang digunakan oleh User
@@ -56,9 +54,7 @@ namespace Login2
                     }
                     Console.WriteLine("");
                 }
-            }
-            //Console.ReadKey();
-        }
+            }        }
     }
 
     public partial class MainWindow : Window
@@ -67,10 +63,10 @@ namespace Login2
         public MainWindow()
         {
             InitializeComponent();
-            tools.preventKill(1);
+            //tools.preventKill(1);
         }
-        // mematikan fungsi dari alt + f4
 
+        // mematikan fungsi dari alt + f4
         protected override void OnPreviewKeyDown(KeyEventArgs e)
         {
             if ((Keyboard.Modifiers == ModifierKeys.Alt && e.SystemKey == Key.F4 )||
@@ -89,10 +85,10 @@ namespace Login2
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow home = new MainWindow();
-
-            //string npa = NPAText.Text;
             string NIM = NIMText.Text;
             string TglLahir = TglLahirText.Text;
+
+            // Validasi Input
             if (NIM.Equals(""))
             {
                 MessageBox.Show("NIM tidak boleh kosong!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -106,31 +102,20 @@ namespace Login2
                 return;
             }
 
-
             // Force login untuk keluar aplikasi
             if (NIM.ToLower().Equals("teknisi"))
             {
                 if (TglLahir.ToLower().Equals("jtkpolban"))
                 {
                     MessageBox.Show("FORCE LOGIN DETECTED, EXITING PROGRAM...", "SUCCESS", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //tools.preventKill(0);
                     System.Environment.Exit(0);
                 }
             }
-            // WebRequest req = WebRequest.Create("http://10.10.0.9/elib/api/user/read_one.php?npa=" + npa);
-            //WebRequest req = WebRequest.Create("http://encode.jtk.polban.ac.id/elib/api/user/read_one.php?npa=" + npa);
+
+            // Cek user data
             WebRequest req = WebRequest.Create("http://127.0.0.1:8000/api/mahasiswa/" + NIM);
-            //req.Method = "GET";
             req.ContentType = "application/json; charset=utf-8";
-
-            //string postData = "npa=" + npa;
-            //byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-
-            //req.ContentLength = byteArray.Length;
-
-
-            //Stream ds = req.GetRequestStream();
-            //ds.Write(byteArray, 0, byteArray.Length);
-            //ds.Close();
             string jsonText = null;
             try
             {
@@ -146,10 +131,8 @@ namespace Login2
                 this.NIMText.Focus();
                 return;
             }
-            //var nama = js["nama"];
 
-            //get data from json to model
-            //User user = JsonConvert.DeserializeObject<User>(jsonText);
+            // Retrieve data mahasiswa
             Mahasiswa mhs = JsonConvert.DeserializeObject<Mahasiswa>(jsonText);
             if (mhs.code.Equals(200))
             {
@@ -163,16 +146,12 @@ namespace Login2
                 {
                     Console.WriteLine(fe);
                 }
+
+                // Check user login validity
                 if (mhs.nim != null && mhs.tanggal_lahir == TglLahir)
                 {
                     tools.readxml(mhs);
                     Console.WriteLine("Running on PC : " + mhs.no_pc);
-                    
-                    //Console.WriteLine("fakyu");
-                    //this.Close();
-                    //MainWindow signIn = new MainWindow();
-                    //signIn.ShowDialog();
-                    //login.TextBlockName.Text = nama;
 
                     //---------------------------Penambahan User Active 1--------------------------------------
                     //string URI = "http://encode.jtk.polban.ac.id/elib/api/login/aktif.php";
@@ -189,7 +168,7 @@ namespace Login2
                     
                     Login login = new Login(mhs);
                     login.Show();
-                    tools.preventKill(0);
+                    //tools.preventKill(0);
                     
                     Close();
                 }
@@ -204,14 +183,13 @@ namespace Login2
                 MessageBox.Show("NIM atau tanggal lahir salah !", "ERROR",MessageBoxButton.OK,MessageBoxImage.Error);
                 this.NIMText.Focus();
             }
-            //fail.IsOpen = true;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            tools.preventKill(0);
-            //System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
-            Close();
+            //tools.preventKill(0);
+            System.Diagnostics.Process.Start("shutdown", "/s /f /t 0");
+            //Close();
             System.Environment.Exit(0);
         }
     }
